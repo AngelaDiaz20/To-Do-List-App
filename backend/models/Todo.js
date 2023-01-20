@@ -5,4 +5,7 @@ const TodoSchema = new mongoose.Schema({
     completed: Boolean
 });
 
+/* añadí esta linea*/
+mongoose.set('strictQuery', false);
+
 module.exports = mongoose.model("Todo", TodoSchema);
