@@ -1,4 +1,4 @@
-<h1 align="center">LIBROSSOGAMOSO</h1> 
+<h1 align="center">To-DO List Flowers</h1> 
 <!-- <p align="center">
  <img src="https://user-images.githubusercontent.com/92338030/211099029-6ae9d231-6343-4715-8cd3-068449487215.png">
 </p> -->
@@ -27,7 +27,7 @@ La aplicación tendrá como público objetivo los empleados de la empresa Flores
  <p>Figma para realizar los diseños, tanto wireframes y mockups como prototipos</p><img width="40px"src="https://user-images.githubusercontent.com/86115727/199336813-72221f32-eb87-4cd9-b377-0f22e2b4d254.png" alt="Logo Figma">
  <p>Visual Studio Code para codificación</p> <img width="40px"src="https://user-images.githubusercontent.com/86115727/199334189-d07ad5bf-3384-4dc6-82ba-0f39bf80ed82.png" alt="Logo Visual studio code">
  <p>React para la creación de la interface de usuario interactiva y el consumo de la falsa API</p><img width="50px"src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/800px-React.svg.png" alt="Logo React">
-  <p>CSS3 y semantic ui css para dar estilos y mejorar el aspecto visual de las páginas</p><img width="40px"src="![image](https://user-images.githubusercontent.com/92338030/213824036-bf280c00-cdbd-40fb-9326-351c1910358c.png)" alt="Logo Semantic ui">
+  <p>CSS3 y semantic ui css para dar estilos y mejorar el aspecto visual de las páginas</p><img width="40px"src="https://user-images.githubusercontent.com/92338030/213824036-bf280c00-cdbd-40fb-9326-351c1910358c.png" alt="Logo Semantic ui">
   <p>Github como controlador de versiones </p><img width="40px"src="https://user-images.githubusercontent.com/86115727/199336699-67593444-6d17-4c33-b313-99b09181887b.png" alt="Logo Github">
 <!--   <p>Vercel para desplegar la aplicación </p><img width="40px"src="https://mms.businesswire.com/media/20211123005573/en/929867/23/vercel-logo-freelogovectors.net.jpg" alt="Logo Vercel"> -->
 
