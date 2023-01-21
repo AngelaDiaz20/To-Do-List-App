@@ -30,7 +30,7 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
       editTodoItemProp({ title: tempValue });
       setValue(tempValue);
       setIsEditing(false);
-    //to cancel
+      //to cancel
     } else if (key === 27) {
       setTempValue(value);
       setIsEditing(false);
@@ -53,50 +53,77 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
 
   //HTML
   return (
-    <div className="row">
-      <div className="column one wide">
-        {/* shows the icon according to task status */}
-        {completedState ? (
-          <BsFillCheckCircleFill onClick={handleButtonClick} fill="#490093" />
-        ) : (
-          <BsCircle onClick={handleButtonClick} fill="#490093" />
-        )}
-      </div>
-      {/* shows a text with the description of the task or an input to edit the task */}
-      {isEditing ? (
-        <div className="column five wide">
-          {/* input that allows editing and saving changes */}
-          <div className="ui transparent input fluid">
-            <input
-              onChange={handleInputOnChange}
-              onKeyDown={handleInputKeyDown}
-              autoFocus={true}
-              value={tempValue}
+    <>
+      <div className="row" style={{paddingBottom: "0.5rem", paddingTop: "0.5rem"}}>
+        <div className="column one wide">
+          {/* shows the icon according to task status */}
+          {completedState ? (
+            <BsFillCheckCircleFill
+              onClick={handleButtonClick}
+              fill="#490093"
+              style={{ fontSize: "1.5rem" }}
             />
-          </div>
+          ) : (
+            <BsCircle
+              onClick={handleButtonClick}
+              fill="#490093"
+              style={{ fontSize: "1.5rem" }}
+            />
+          )}
         </div>
-      ) : (
-        <div className="column five wide" onDoubleClick={handleDivDoubleClick}>
-          {/*text with the description of the task, if the task is finished a lighter colored text is shown */}
+        {/* shows a text with the description of the task or an input to edit the task */}
+        {isEditing ? (
+          <div className="column seven wide">
+            {/* input that allows editing and saving changes */}
+            <div className="ui transparent input fluid">
+              <input
+                onChange={handleInputOnChange}
+                onKeyDown={handleInputKeyDown}
+                autoFocus={true}
+                value={tempValue}
+                className="ui medium left aligned header"
+              />
+            </div>
+          </div>
+        ) : (
           <div
-            className={
-              "ui small left aligned header grey" +
-              (completedState ? " ui disabled header" : "")
-            }
+            className="column seven wide"
+            onDoubleClick={handleDivDoubleClick}
           >
-            {value}
+            {/*text with the description of the task, if the task is finished a lighter colored text is shown */}
+            <div
+              className={
+                "ui medium left aligned header grey" +
+                (completedState ? " ui disabled header" : "")
+              }
+            >
+              {value}
+            </div>
           </div>
+        )}
+        {/* shows the icon to edit tasks */}
+        <div className="column one wide">
+          <BsPencil
+            onClick={handleDivDoubleClick}
+            fill="#490093"
+            style={{ fontSize: "1.5rem" }}
+          />
         </div>
-      )}
-      {/* shows the icon to edit tasks */}
-      <div className="column one wide">
-        <BsPencil onClick={handleDivDoubleClick} fill="#490093" />
+
+        {/* shows the icon to delete tasks */}
+        <div className="column one wide">
+          <BsFillTrashFill
+            onClick={removeTodoItemProp}
+            fill="#490093"
+            style={{ fontSize: "1.5rem" }}
+          />
+        </div>
       </div>
-      {/* shows the icon to delete tasks */}
-      <div className="column one wide">
-        <BsFillTrashFill onClick={removeTodoItemProp} fill="#490093" />
-      </div>
-    </div>
+      <div
+        className="column ten wide"
+        style={{ borderBottom: "0.75px solid #490093", padding: "0" }}
+      ></div>
+    </>
   );
 };
 
