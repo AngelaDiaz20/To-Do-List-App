@@ -34,23 +34,27 @@ const App = () => {
     };
 
     return (
-        <div className="ui container center aligned">
-            <Section>
-                <h1>{appTitle}</h1>
-            </Section>
+        <>
+        <img class="ui fluid image" src="https://www.nippon.com/es/ncommon/contents/guide-to-japan/143942/143942.jpg" alt="" 
+        style={{zIndex: -10}}/>
+            <div className="ui container center aligned" style={{ margin: "-300px", color:"white"}}>
+                <Section>
+                    <h1>{appTitle}</h1>
+                </Section>
 
-            <Section>
-                <Form addTodo={addTodo} />
-            </Section>
+                <Section>
+                    <Form addTodo={addTodo} />
+                </Section>
 
-            <Section>
-                <List
-                    editTodoListProp={editTodo}
-                    removeTodoListProp={removeTodo}
-                    list={todoList}
-                />
-            </Section>
-        </div>
+                <Section>
+                    <List
+                        editTodoListProp={editTodo}
+                        removeTodoListProp={removeTodo}
+                        list={todoList}
+                    />
+                </Section>
+            </div>
+        </>
     );
 };
 
