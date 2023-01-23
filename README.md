@@ -59,3 +59,42 @@ La aplicación tendrá como público objetivo los empleados de la empresa Flores
 <h3>Documentación técnica</h3>
 <!-- <a href="#">Documentación técnica</a>
  -->
+ 
+<h4>Componente App</h4>   
+ 
+```js
+  useEffect(() => {
+      async function fetchData() {
+          const { data } = await todos.get("/todos");
+          setTodoList(data);
+      }
+      fetchData()
+  }, []);
+```
+
+Tenemos un hook con una funcion llamada fetchData que simula el consumo de un API utilizando la librería axios y asigna la respuesta a una variable "data". Esto nos trae una url a la cual se asignamos un path, luego se utiliza la funcion setTodoList para enviarle la data a la variable "todoList" y al final ejecutamos esta funcion El arreglo vacío [] al final del useEffect indica que la función solo se ejecutará una vez en el montaje del componente.
+
+```js
+  const addTodo = async (item) => {
+        const { data } = await todos.post("/todos", item);
+        setTodoList((oldList) => [...oldList, data]);
+    };
+```
+
+Esta función se utiliza para agregar un nuevo elemento "item" a una lista de tareas. Utiliza la librería axios para hacer una llamada HTTP POST a una ruta específica "/todos" de una API, con el objeto "item" como el cuerpo de la solicitud. La respuesta de la solicitud se almacena en una variable "data". Luego, utiliza la función "setTodoList" para actualizar el estado del componente con la lista anterior y el nuevo "data" agregado a ella. La función "setTodoList" se utiliza para actualizar el estado de la lista de tareas, y se usa el operador spread para crear una copia de la lista anterior y agregar el nuevo elemento a ella.
+
+```js
+  const removeTodo = async (id) => {
+        await todos.delete(`/todos/${id}`);
+        setTodoList((oldList) => oldList.filter((item) => item._id !== id));
+    };
+```
+Es una funcion asincrona que recibe un parametro "id" usando el metodo delete de axios para borrar un elemento de la lista pasandole como referencia el "id" en el path, luego seteamos la variable todoList y le pasamos una funcion de flecha para filtrar la lista y obtener los id's para compararlos segun el id que hay en la lista con el que se seleccione para borrar el elemento.
+
+```js
+  const editTodo = async (id, item) => {
+        await todos.put(`/todos/${id}`, item);
+    };
+```
+
+Esta función se utiliza para editar un elemento existente en una lista de tareas. Utiliza la librería axios para hacer una llamada HTTP PUT a una ruta específica "/todos/:id" de una API, con el objeto "item" como el cuerpo de la solicitud, la función recibe dos parámetros, el primero es el "id" del elemento que se va a editar y el segundo es el objeto "item" con los nuevos valores, la llamada PUT reemplaza el recurso existente en la ruta especificada con uno nuevo. El método PUT es utilizado para actualizar un recurso existente en una API.
