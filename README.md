@@ -36,3 +36,50 @@ La aplicación tendrá como público objetivo los empleados de la empresa Flores
 <h3>Documentación técnica</h3>
 <!-- <a href="#">Documentación técnica</a>
  -->
+
+ <h4>Componente Todo</h4>   
+ Para permitir la edición de las tareas, se utiliza el evento handleDivDoubleClick. Esta función muestra un input tipo text con la descripción de la tarea para que esta pueda ser modificada.
+
+```js
+const handleDivDoubleClick = () => {
+  setIsEditing(true);
+};
+```
+
+Tenemos un evento con la función handleInputKeyDown que se activa cuando estamos editando una tarea y cada vez que presionamos una tecla. Esto nos permite actualizar los datos de una tarea cuando la tecla presionada es ENTER (key 13) o cancelar los cambios cuando presionamos ESC (key 27).
+
+```js
+const handleInputKeyDown = (e) => {
+  const key = e.keyCode;
+  //to update
+  if (key === 13) {
+    editTodoItemProp({ title: tempValue });
+    setValue(tempValue);
+    setIsEditing(false);
+    //to cancel
+  } else if (key === 27) {
+    setTempValue(value);
+    setIsEditing(false);
+  }
+};
+```
+
+Cada vez que una tarea es actualizada en base de datos, el evento handleInputOnChange guarda una copia temporal de su valor en la variable tempValue. El paso anterior permite recuperar el valor de una tarea cuando se cancela su edición.
+
+```js
+const handleInputOnChange = (e) => {
+  setTempValue(e.target.value);
+};
+```
+
+Finalmente, la función handleButtonClick es un evento que nos permite marcar una tarea como realizada o imcompleta, según el estado incial de la esta.
+
+```js
+const handleButtonClick = () => {
+  setCompleted((oldCompleted) => {
+    const newState = !oldCompleted;
+    editTodoItemProp({ completed: newState });
+    return newState;
+  });
+};
+```
