@@ -68,7 +68,7 @@ const handleDivDoubleClick = () => {
 };
 ```
 
-Tenemos un evento con la función handleInputKeyDown que se activa cuando estamos editando una tarea cada vez que presionamos una tecla. Esto nos permite actualizar los datos de una tarea cuando la tecla presionada es ENTER (key 13) o cancelar los cambios cuando presionamos ESC (key 27).
+Tenemos un evento con la función handleInputKeyDown que se activa cuando estamos editando una tarea y cada vez que presionamos una tecla. Esto nos permite actualizar los datos de una tarea cuando la tecla presionada es ENTER (key 13) o cancelar los cambios cuando presionamos ESC (key 27).
 
 ```js
 const handleInputKeyDown = (e) => {
