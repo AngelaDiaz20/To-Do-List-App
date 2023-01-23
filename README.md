@@ -98,3 +98,62 @@ Es una funcion asincrona que recibe un parametro "id" usando el metodo delete de
 ```
 
 Esta función se utiliza para editar un elemento existente en una lista de tareas. Utiliza la librería axios para hacer una llamada HTTP PUT a una ruta específica "/todos/:id" de una API, con el objeto "item" como el cuerpo de la solicitud, la función recibe dos parámetros, el primero es el "id" del elemento que se va a editar y el segundo es el objeto "item" con los nuevos valores, la llamada PUT reemplaza el recurso existente en la ruta especificada con uno nuevo. El método PUT es utilizado para actualizar un recurso existente en una API.
+    
+------------
+    
+# Backend
+
+## index.js
+```javascript
+const express = require("express");
+```
+importación de librería de Express.js, un marco de Node.js para el desarrollo de aplicaciones web y API. Express proporciona una interfaz fácil de usar para crear rutas y manejar solicitudes HTTP.
+
+```javascript
+const mongoose = require("mongoose");
+```
+Importación de librería de Mongoose, la cual está dedicada al modelado de objetos de MongoDB para Node.js. Permite definir esquemas para los documentos en las colecciones de MongoDB, así como realizar operaciones CRUD en ellos de manera fácil.
+
+```javascript
+const cors = require("cors");
+```
+Importación de librería de CORS el cual puede permitit a un servidor que una aplicación de otro origen acceda a sus recursos.
+ 
+## Configuración del servidor
+
+Configuración del servidor usando el marco de trabajo Express.js.
+```javascript
+const PORT = 3030;
+const app = express();
+```
+`const PORT = 3030;` establece una constante llamada "PORT" con el valor de 3030. Esta variable se usa para especificar el número de puerto en el que el servidor escuchará.
+
+`const app = express();` crea una nueva instancia de la aplicación Express, que se asigna a la constante "app". Esta instancia se utiliza para configurar y manejar las solicitudes y respuestas del servidor.
+
+```javascript
+const todoRoutes = require("./routes/todoRoutes");
+
+const connectionOptions = {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+};
+```
+`const todoRoutes` está importando un archivo de rutas específico para la aplicación. 
+`const connectionOptions` crea un objeto de opciones de conexión con la base de datos, la cual incluye dos opciones necesarias para garantizar una conexión segura y compatible con la versión actual de MongoDB. `useUnifiedTopology: true` que habilita el nuevo esquema de topología en MongoD, es decir, a la estructura lógica de una base de datos, y, `useNewUrlParser: true` que habilita el nuevo analizador de URL en MongoDB, el cual es responsable de interpretar la cadena de conexión usada para conectarse a la base de datos
+
+```javascript
+mongoose
+  .connect("mongodb://127.0.0.1/todolist", connectionOptions)
+  .then(() => console.log("Connected successfully"))
+  .catch((err) => console.error(err));
+```
+El método `connect()` de Mongoose devuelve una promesa, y en este caso, se están utilizando las funciones `.then()` y `.catch()` para manejar el resultado de la promesa.
+
+Si la conexión es exitosa, se ejecutará console.log("Connected successfully"), imprimiendo un mensaje en la consola indicando que se ha conectado con éxito. Si ocurre un error, se ejecutará console.error(err), imprimiendo el error en la consola.
+
+```javascript
+app.listen(PORT, () => {
+  console.log("The server is listening on port " + PORT);
+});
+```
+Se utiliza el método `listen()` de Express para iniciar el servidor en el puerto especificado en la constante `PORT`
