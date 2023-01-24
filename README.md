@@ -203,3 +203,23 @@ app.listen(PORT, () => {
 });
 ```
 Se utiliza el método `listen()` de Express para iniciar el servidor en el puerto especificado en la constante `PORT`
+
+# models
+![image](https://user-images.githubusercontent.com/114447994/214187762-c6998f89-4189-4941-8d08-75e55b01211c.png)
+
+## Todo.js
+```javascript
+const TodoSchema = new mongoose.Schema({
+    title: String,
+    completed: Boolean
+});
+```
+Inicialmente se guardo en una constante 'TodoShema' para guardar o definir dos campos `title` de tipo 'string' y `completed` de tipo 'booleano'
+```javascript
+mongoose.set('strictQuery', false);
+```
+Indicamos a `Mongoose` que no debe aplicar restricciones estrictas a las consultas a la base de datos.
+```javascript
+module.exports = mongoose.model("Todo", TodoSchema);
+```
+Finalmente exportamos el archivo para poder ser utilizado en otro lugar del codigo.
