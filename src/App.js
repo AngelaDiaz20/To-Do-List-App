@@ -34,23 +34,32 @@ const App = () => {
     };
 
     return (
-        <div className="ui container center aligned">
-            <Section>
-                <h1>{appTitle}</h1>
-            </Section>
+        <>
+            <img class="ui centered big image" src="https://www.nippon.com/es/ncommon/contents/guide-to-japan/143942/143942.jpg" width={100} alt=""
+                style={{ zIndex: -10 }} />
+            <div className="ui container center aligned" style={{ color: "white" }}>
+                <Section>
+                    <h1>{appTitle}</h1>
+                </Section>
 
-            <Section>
-                <Form addTodo={addTodo} />
-            </Section>
+                <Section>
+                    <Form addTodo={addTodo} />
+                </Section>
 
-            <Section>
-                <List
-                    editTodoListProp={editTodo}
-                    removeTodoListProp={removeTodo}
-                    list={todoList}
-                />
-            </Section>
-        </div>
+                <Section>
+                    <List
+                        editTodoListProp={editTodo}
+                        removeTodoListProp={removeTodo}
+                        list={todoList}
+                    />
+                </Section>
+                <div class="ui violet inverted vertical footer segment">
+                    <div class="ui container" >
+                        ©Derechos reservados de Flowers 2023
+                    </div>
+                </div>
+            </div>
+        </>
     );
 };
 
