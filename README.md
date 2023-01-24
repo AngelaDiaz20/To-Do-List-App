@@ -144,6 +144,52 @@ Es una funcion asincrona que recibe un parametro "id" usando el metodo delete de
 ```
 
 Esta función se utiliza para editar un elemento existente en una lista de tareas. Utiliza la librería axios para hacer una llamada HTTP PUT a una ruta específica "/todos/:id" de una API, con el objeto "item" como el cuerpo de la solicitud, la función recibe dos parámetros, el primero es el "id" del elemento que se va a editar y el segundo es el objeto "item" con los nuevos valores, la llamada PUT reemplaza el recurso existente en la ruta especificada con uno nuevo. El método PUT es utilizado para actualizar un recurso existente en una API.
+ 
+<h3>Componente List</h3> 
+
+```js
+  const List = ({ list, removeTodoListProp, editTodoListProp }) => {
+```  
+Esta funcion contiene propiedades para listar,eliminar y editar cada tarea que este agregada en las propiedades que se estan declarando en el `componente de Section` y el `componente de Todo `.
+    
+    
+```js
+  const renderedList = list.map(
+        (item) => (
+```  
+    
+    
+ Por medio de este componente se declara una variable contstante, en donde le va listar las tareas agregadas por medio del metodo map() por la caja de texto, en donde cada `(item)` va a llamar al objeto donde almacena los datos.
+    
+    
+```js
+    <Todo
+       title={item.title}
+       completed={item.completed}
+       removeTodoItemProp={(e) => removeTodoListProp(item._id)}
+       editTodoItemProp={(updatedItem) => editTodoListProp(item._id, updatedItem)}
+       key={item.title}
+     />
+      )
+    );
+```  
+Por medio de la secuencia que vamos llevando del componente List va a traer el componente Todo, visualizamos que llama a tres datos title es el titulo de la tarea,completed si es falso o verdadero que la tarea ya este hecha o no, el id que es un documento unico que no se puede repetir y que contiene cada tarea agregada.Estos son los tres datos que almacena la colleccion todos traidos por el objeto .
+
+`removeTodoItemProp` Este objeto es llamado del componente Todo en donde contiene un evento a la propiedad `removeTodoListProp` trayendo el objeto item con el id en cuanto elimine la tarea agregada.
+      
+`editTodoItemProp` Este objeto tambien es llamado por el componente Todo en donde contiene un evento a la propiedad `editTodoListProp` permite visualizar si una tarea esta realizada o imcompleta, segun su marcacion.
+
+
+<h3>Componente Section</h3> 
+    
+```js
+ const Section = ({ children }) => {
+  return <div style={{ margin: "50px" }}>{children}</div>;
+   };
+```
+El componente section esta estructurado de una funcion de forma simple en donde va a contener una propiedad children esta propiedad es para desestructurar la funcion y pueda ejecutar una accion  con el contenido del elemento que esta llamando.
+
+La accion que realizara la propiedad children es donde puede acceder a ella y lo que va a renderizar son  los elementos que tengan la propiedad, en este caso contiene una clase con un selector de css donde le indica que debe tener espaciado del lado izquierdo,derecho, inferior y superior de 50px. 
     
 ------------
     
