@@ -59,8 +59,15 @@ La aplicación tendrá como público objetivo los empleados de la empresa Flores
 <!-- <a href="#">Despliegue con Vercel</a> -->
 <h3>Documentación técnica</h3>
 
+
 <h4>Componente Todo</h4>  
     
+=======
+<!-- <a href="#">Documentación técnica</a>
+ -->
+
+ <h4>Componente Todo</h4>   
+
  Para permitir la edición de las tareas, se utiliza el evento handleDivDoubleClick. Esta función muestra un input tipo text con la descripción de la tarea para que esta pueda ser modificada.
 
 ```js
@@ -270,3 +277,4 @@ Indicamos a `Mongoose` que no debe aplicar restricciones estrictas a las consult
 module.exports = mongoose.model("Todo", TodoSchema);
 ```
 Finalmente exportamos el archivo para poder ser utilizado en otro lugar del codigo.
+

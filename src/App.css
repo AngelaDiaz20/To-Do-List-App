@@ -1,0 +1,8 @@
+.content{
+   width: 100%; 
+   height: 90vh;
+   background: url("https://www.nippon.com/es/ncommon/contents/guide-to-japan/143942/143942.jpg");
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center top;
+}

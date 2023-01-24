@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import styles
+import "./Todo.css"
 //import icons
 import {
   BsFillTrashFill,
@@ -54,26 +56,24 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
   //HTML
   return (
     <>
-      <div className="row" style={{paddingBottom: "0.5rem", paddingTop: "0.5rem"}}>
+      <div className="row">
         <div className="column one wide">
           {/* shows the icon according to task status */}
           {completedState ? (
             <BsFillCheckCircleFill
               onClick={handleButtonClick}
               fill="#490093"
-              style={{ fontSize: "1.5rem" }}
             />
           ) : (
             <BsCircle
               onClick={handleButtonClick}
               fill="#490093"
-              style={{ fontSize: "1.5rem" }}
             />
           )}
         </div>
         {/* shows a text with the description of the task or an input to edit the task */}
         {isEditing ? (
-          <div className="column seven wide">
+          <div className="column eleven wide">
             {/* input that allows editing and saving changes */}
             <div className="ui transparent input fluid">
               <input
@@ -81,20 +81,20 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
                 onKeyDown={handleInputKeyDown}
                 autoFocus={true}
                 value={tempValue}
-                className="ui medium left aligned header"
+                className="task"
               />
             </div>
           </div>
         ) : (
           <div
-            className="column seven wide"
+            className="column eleven wide"
             onDoubleClick={handleDivDoubleClick}
           >
             {/*text with the description of the task, if the task is finished a lighter colored text is shown */}
             <div
               className={
-                "ui medium left aligned header grey" +
-                (completedState ? " ui disabled header" : "")
+                "task" +
+                (completedState ? " disabled" : "")
               }
             >
               {value}
@@ -106,7 +106,6 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
           <BsPencil
             onClick={handleDivDoubleClick}
             fill="#490093"
-            style={{ fontSize: "1.5rem" }}
           />
         </div>
 
@@ -115,13 +114,11 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
           <BsFillTrashFill
             onClick={removeTodoItemProp}
             fill="#490093"
-            style={{ fontSize: "1.5rem" }}
           />
         </div>
       </div>
       <div
-        className="column ten wide"
-        style={{ borderBottom: "0.75px solid #490093", padding: "0" }}
+        className="column fourteen wide divider"
       ></div>
     </>
   );
