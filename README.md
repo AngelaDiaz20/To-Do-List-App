@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 <h1 align="center">To-Do List Flowers</h1> 
 <p align="center">
 <img  src="https://user-images.githubusercontent.com/88007025/213829456-e3564c8d-d7ab-4b99-bc15-4ef6a1628dae.PNG" alt="Flowers"/>
 </p>
-=======
 <hr>
 <h3>Introducción</h3>
 La empresa Flores del Tambo, tiene una serie de tareas diarias desde la siembra de sus flores hasta la recolección de las mismas para finalmente expórtalas.<br>
@@ -57,12 +55,11 @@ La aplicación tendrá como público objetivo los empleados de la empresa Flores
 
 <h3>Despliegue</h3>
 <!-- <a href="#">Despliegue con Vercel</a> -->
-<h3>Documentación técnica</h3>
+
+<hr>
+<h2>Documentación técnica</h2>
 
 
-<h4>Componente Todo</h4>  
-    
-=======
 <!-- <a href="#">Documentación técnica</a>
  -->
 
