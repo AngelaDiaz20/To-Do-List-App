@@ -1,8 +1,9 @@
+<<<<<<< HEAD
 <h1 align="center">To-Do List Flowers</h1> 
 <p align="center">
 <img  src="https://user-images.githubusercontent.com/88007025/213829456-e3564c8d-d7ab-4b99-bc15-4ef6a1628dae.PNG" alt="Flowers"/>
 </p>
-
+=======
 <hr>
 <h3>Introducción</h3>
 La empresa Flores del Tambo, tiene una serie de tareas diarias desde la siembra de sus flores hasta la recolección de las mismas para finalmente expórtalas.<br>
