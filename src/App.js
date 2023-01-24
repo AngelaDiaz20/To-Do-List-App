@@ -35,9 +35,9 @@ const App = () => {
 
     return (
         <>
-        <img class="ui fluid image" src="https://www.nippon.com/es/ncommon/contents/guide-to-japan/143942/143942.jpg" alt="" 
-        style={{zIndex: -10}}/>
-            <div className="ui container center aligned" style={{ margin: "-300px", color:"white"}}>
+            <img class="ui centered big image" src="https://www.nippon.com/es/ncommon/contents/guide-to-japan/143942/143942.jpg" width={100} alt=""
+                style={{ zIndex: -10 }} />
+            <div className="ui container center aligned" style={{ color: "white" }}>
                 <Section>
                     <h1>{appTitle}</h1>
                 </Section>
@@ -53,6 +53,11 @@ const App = () => {
                         list={todoList}
                     />
                 </Section>
+                <div class="ui violet inverted vertical footer segment">
+                    <div class="ui container" >
+                        ©Derechos reservados de Flowers 2023
+                    </div>
+                </div>
             </div>
         </>
     );
