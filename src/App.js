@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import todos from "./apis";
 
-import Form from "./components/Form";
-import Section from "./components/Section";
-import List from "./components/List";
-import Footer from "./components/Footer";
+import Form from "./components/common/form/Form"
+import Section from "./components/common/section/Section";
+import List from "./components/common/list/List"
+import Footer from "./components/layouts/footer/Footer";
 
 import "./App.css"
 
