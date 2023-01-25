@@ -52,7 +52,7 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
       return newState;
     });
   };
-  console.log("hola");
+
   //HTML
   return (
     <>

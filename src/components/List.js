@@ -16,28 +16,40 @@ const List = ({ list, removeTodoListProp, editTodoListProp }) => {
     />
   ));
 
-  const showCompleted = () => {
-    // hide pending tasks
-    const pendingTasks = document.querySelectorAll(".false");
-    pendingTasks.forEach((task) => {
+  //Filter task
+  const filter = (condition) => {
+    // hide completed tasks
+    const completedTasks = document.querySelectorAll("." + !condition);
+    completedTasks.forEach((task) => {
       task.style.display = "none";
     });
-    document.querySelector(".true.divider").style.display = "none";
-
-    /* //show completed tasks
-    const completedTasks = document.querySelectorAll(".true");
-    completedTasks.forEach((task) => {
-      task.style.display = "block";
-    }); */
+    // show pending tasks
+    const pendingTasks = document.querySelectorAll("." + condition);
+    pendingTasks.forEach((task) => {
+      if (task.style.display == "none") {
+        task.style.display = "";
+      }
+    });
+    document.querySelector("." + condition + ".divider").style.display = "none";
+  };
+  
+  // show all tasks
+  const showAll = () => {
+    const task = document.querySelectorAll(".false, .true");
+    task.forEach((task) => {
+      if (task.style.display == "none") {
+        task.style.display = "";
+      }
+    });
   };
 
   return (
     <div className="list">
       <div className="ui grid center aligned tasks">{renderedList}</div>
       <div className="filters">
-        <a>Todas</a>
-        <a>Pendientes</a>
-        <a onClick={showCompleted}>Completadas</a>
+        <a onClick={showAll}>Todas</a>
+        <a onClick={() => filter(false)}>Pendientes</a>
+        <a onClick={() => filter(true)}>Completadas</a>
       </div>
     </div>
   );
