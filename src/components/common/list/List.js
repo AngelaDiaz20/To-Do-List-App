@@ -3,32 +3,53 @@ import Todo from "../todo/Todo"
 //import styles
 import "./List.css";
 
-/*certain properties are created */
 const List = ({ list, removeTodoListProp, editTodoListProp }) => {
-    /*The .map is a method so that you can iterate each list that is added */
-    const renderedList = list.map(
-        (item) => (
-            /*calls the TODO component where you are going to call the item variable with your object */
-            <Todo
-                title={item.title}
-                completed={item.completed}
-                /*by means of this property removeTodoListProp contains an event where
-                 you can remove each item from the list by means of the id */
-                removeTodoItemProp={(e) => removeTodoListProp(item._id)}
-                /* through the editTodoListProp method can edit via id*/
-                editTodoItemProp={(updatedItem) => editTodoListProp(item._id, updatedItem)}
-                key={item.title}
-            />
-        )
-    );
+    const renderedList = list.map((item) => (
+        <Todo
+            title={item.title}
+            completed={item.completed}
+            removeTodoItemProp={(e) => removeTodoListProp(item._id)}
+            editTodoItemProp={(updatedItem) =>
+                editTodoListProp(item._id, updatedItem)
+            }
+            key={item.title}
+        />
+    ));
+
+    //Filter task
+    const filter = (condition) => {
+        // hide completed tasks
+        const completedTasks = document.querySelectorAll("." + !condition);
+        completedTasks.forEach((task) => {
+            task.style.display = "none";
+        });
+        // show pending tasks
+        const pendingTasks = document.querySelectorAll("." + condition);
+        pendingTasks.forEach((task) => {
+            if (task.style.display == "none") {
+                task.style.display = "";
+            }
+        });
+        document.querySelector("." + condition + ".divider").style.display = "none";
+    };
+
+    // show all tasks
+    const showAll = () => {
+        const task = document.querySelectorAll(".false, .true");
+        task.forEach((task) => {
+            if (task.style.display == "none") {
+                task.style.display = "";
+            }
+        });
+    };
+
     return (
-        /*calls the class and renders the renderedList property */
         <div className="list">
             <div className="ui grid center aligned tasks">{renderedList}</div>
             <div className="filters">
-                <a>Todas</a>
-                <a>Pendientes</a>
-                <a>Completadas</a>
+                <a onClick={showAll}>Todas</a>
+                <a onClick={() => filter(false)}>Pendientes</a>
+                <a onClick={() => filter(true)}>Completadas</a>
             </div>
         </div>
     );

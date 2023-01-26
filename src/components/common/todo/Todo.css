@@ -24,9 +24,8 @@
   padding: 0;
 }
 
-.column.fourteen.wide.divider:last-child {
-  border-bottom: none;
-  padding: 0;
+.column.fourteen.wide.divider:first-child {
+  display: none;
 }
 
 @media (max-width: 576px) {

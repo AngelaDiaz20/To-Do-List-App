@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import styles
-import "./Todo.css"
+import "./Todo.css";
 //import icons
 import {
   BsFillTrashFill,
@@ -56,19 +56,14 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
   //HTML
   return (
     <>
-      <div className="row">
+      <div className={completedState + " column fourteen wide divider"}></div>
+      <div className={completedState + " row"}>
         <div className="column one wide">
           {/* shows the icon according to task status */}
           {completedState ? (
-            <BsFillCheckCircleFill
-              onClick={handleButtonClick}
-              fill="#490093"
-            />
+            <BsFillCheckCircleFill onClick={handleButtonClick} fill="#490093" />
           ) : (
-            <BsCircle
-              onClick={handleButtonClick}
-              fill="#490093"
-            />
+            <BsCircle onClick={handleButtonClick} fill="#490093" />
           )}
         </div>
         {/* shows a text with the description of the task or an input to edit the task */}
@@ -91,35 +86,21 @@ const Todo = ({ title, completed, removeTodoItemProp, editTodoItemProp }) => {
             onDoubleClick={handleDivDoubleClick}
           >
             {/*text with the description of the task, if the task is finished a lighter colored text is shown */}
-            <div
-              className={
-                "task" +
-                (completedState ? " disabled" : "")
-              }
-            >
+            <div className={"task" + (completedState ? " disabled" : "")}>
               {value}
             </div>
           </div>
         )}
         {/* shows the icon to edit tasks */}
         <div className="column one wide">
-          <BsPencil
-            onClick={handleDivDoubleClick}
-            fill="#490093"
-          />
+          <BsPencil onClick={handleDivDoubleClick} fill="#490093" />
         </div>
 
         {/* shows the icon to delete tasks */}
         <div className="column one wide">
-          <BsFillTrashFill
-            onClick={removeTodoItemProp}
-            fill="#490093"
-          />
+          <BsFillTrashFill onClick={removeTodoItemProp} fill="#490093" />
         </div>
       </div>
-      <div
-        className="column fourteen wide divider"
-      ></div>
     </>
   );
 };
